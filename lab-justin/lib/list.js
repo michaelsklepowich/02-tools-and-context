@@ -15,12 +15,28 @@ class List {
     return popped;
 
   }
-  // shift() {
+  shift() {
+    let shifted = this[0];
+    let array = [];
+    let originalLength = this.length;
 
-  // }
-  // unshift() {
-
-  // }
+    for (let i = 0; i < originalLength; i++) {
+      if (this[i + 1]) {
+        array[i] = this[i + 1];
+      }
+      delete this[i];
+      this.length--;
+    }
+    
+    for (let i = 0; i < array.length; i++) {
+      this.push(array[i]);
+    }
+    return shifted;
+  }
+  unshift(...args) {
+    
+    return this.length;
+  }
   // forEach() {
 
   // }

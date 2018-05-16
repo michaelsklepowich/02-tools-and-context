@@ -26,7 +26,7 @@ describe('List Module', () => {
   });
 
   // tests for pop()
-  it('pop(), when run will remove last item from object and decrement length', () => {
+  it('pop(), when run, will remove last item from object and decrement length', () => {
     let list = new List();
     list.push('Foo');
     list.push('Bar');
@@ -57,6 +57,40 @@ describe('List Module', () => {
     expect(popped).toBe('Bop');
   });
 
+  //tests for shift
+  it('shift(), when run, will remove the first item from object and decrement length', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+    list.shift();
+    expect(list).toEqual({ 0: 'Bar', 1: 'Baz', 2: 'Bop', length: 3 });
+  });
+
+  it('shift(), when run, will return first element', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+    let shifted = list.shift();
+    expect(shifted).toBe('Foo');
+  });
+
+  it('shift(), when run, can work multiple times on same array', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+    list.shift();
+    list.shift();
+    list.shift();
+    expect(list).toEqual({ 0: 'Bop', length: 1 });
+  });
+
+  // tests for unshift
   
 });
   
