@@ -60,9 +60,13 @@ class List {
       callback(this[i]);
     }
   }
-  // map() {
-
-  // }
+  map(callback) {
+    let newList = new List();
+    for (let i = 0; i < this.length; i++) {
+      newList.push(callback(this[i], i));
+    }
+    return newList;
+  }
   // filter() {
 
   // }

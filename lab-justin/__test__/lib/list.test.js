@@ -126,6 +126,32 @@ describe('List Module', () => {
 
     expect(list).toEqual({ '0': 'Foo', '1': 'Bar', '2': 'Baz', '3': 'Bop', length: 4 });
   });
+
+  // tests for map 
+  it('map(), when run, should apply callback on each item and store in new array', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+
+    let newArray = list.map((val) => val + 'Bag');
+
+    expect(newArray).toEqual({ '0': 'FooBag', '1': 'BarBag', '2': 'BazBag', '3': 'BopBag', length: 4 });
+  });
+
+  it('map(), when run, original list should remain unchanged', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+
+    let newArray = list.map((val) => val + 'Bag');
+
+    expect(list).toEqual({ '0': 'Foo', '1': 'Bar', '2': 'Baz', '3': 'Bop', length: 4 });
+  });
+
   
   
 });
