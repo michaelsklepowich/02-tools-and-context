@@ -91,6 +91,23 @@ describe('List Module', () => {
   });
 
   // tests for unshift
+  it('unshift(), when run, will add parameters to front of list and adjust length accordingly', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+    list.unshift('Hello', 'John');
+    expect(list).toEqual({ 0: 'Hello', 1: 'John', 2: 'Foo', 3: 'Bar', 4: 'Baz', 5: 'Bop', length: 6 });
+  });
   
+  it('unshift(), when run, should return the value of the new length of the list', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+    let newLength = list.unshift('Hello', 'John');
+    expect(newLength).toBe(6);
+  });
 });
-  

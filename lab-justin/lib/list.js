@@ -34,7 +34,25 @@ class List {
     return shifted;
   }
   unshift(...args) {
-    
+    let originalLength = this.length;
+    let newValues = [];
+    let i = 0;
+  
+    while(args[i]) {
+      newValues[i] = args[i];
+      i++;
+    }
+
+    for(let k = 0; k < originalLength; k++) {
+      newValues[i] = this[k];
+      delete this[k];
+      this.length--;
+      i++;
+    }
+
+    for (let k = 0; k < newValues.length; k++) {
+      this.push(newValues[k]);
+    }
     return this.length;
   }
   // forEach() {
