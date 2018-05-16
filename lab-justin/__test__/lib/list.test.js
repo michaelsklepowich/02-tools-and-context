@@ -1,5 +1,8 @@
 'use strict';
 
+// TODO: make function creates list
+
+
 let List = require('../../lib/list.js');
 
 describe('List Module', () => {

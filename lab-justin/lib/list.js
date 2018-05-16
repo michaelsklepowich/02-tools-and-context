@@ -1,5 +1,9 @@
 'use strict';
 
+// TODO: Create Reduce
+// TODO: Create Splice
+// TODO: Finish slice with conditions
+
 class List {
   constructor() {
     this.length = 0;
@@ -75,10 +79,15 @@ class List {
       }
     }
     return newList;
-  }
-  // reduce() {
-
+  } 
+  //
+  // reduce(callback, state) {
+  // for (let i = 0; i <= this.length - 1; i++) {
+  //   state = callback(this[i], i);
   // }
+  // return state;
+  // }
+  //
   slice(...args) {
     let newList = new List();
     let array = [];
@@ -95,7 +104,7 @@ class List {
         array[k] = this[i];
         k++;
       }
-      
+
     } else if (args.length === 1 && !this[args[0]]) { 
       return []; 
     } else if (args.length === 1 && args[0] < 0) {
