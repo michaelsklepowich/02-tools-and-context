@@ -5,9 +5,14 @@ class List {
     this.length = 0;
   }
   push(item) {
-    this[this.length ++] = item;
+    this[this.length] = item;
+    this.length++;
   } 
   pop() {
+    let popped = this[this.length - 1];
+    delete this[this.length-1];
+    this[this.length--];
+    return popped;
 
   }
   // shift() {
