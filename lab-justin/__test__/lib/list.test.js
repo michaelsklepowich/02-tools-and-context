@@ -110,4 +110,22 @@ describe('List Module', () => {
     let newLength = list.unshift('Hello', 'John');
     expect(newLength).toBe(6);
   });
+
+  // tests for forEach
+  it('forEach(), when run, should apply callback parameter on each value of the list without changing value of list', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+
+    let logValues = function(item) {
+      console.log(item + 'Bag');
+    };
+    list.forEach(logValues);
+
+    expect(list).toEqual({ '0': 'Foo', '1': 'Bar', '2': 'Baz', '3': 'Bop', length: 4 });
+  });
+  
+  
 });

@@ -55,9 +55,11 @@ class List {
     }
     return this.length;
   }
-  // forEach() {
-
-  // }
+  forEach(callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i]);
+    }
+  }
   // map() {
 
   // }
