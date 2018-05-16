@@ -67,9 +67,15 @@ class List {
     }
     return newList;
   }
-  // filter() {
-
-  // }
+  filter(callback) {
+    let newList = new List();
+    for(let i = 0; i < this.length; i++) {
+      if (callback(this[i], i)) {
+        newList.push(this[i]);
+      }
+    }
+    return newList;
+  }
   // reduce() {
 
   // }

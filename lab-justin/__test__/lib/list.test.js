@@ -135,7 +135,7 @@ describe('List Module', () => {
     list.push('Baz');
     list.push('Bop');
 
-    let newArray = list.map((val) => val + 'Bag');
+    let newArray = list.map(val => val + 'Bag');
 
     expect(newArray).toEqual({ '0': 'FooBag', '1': 'BarBag', '2': 'BazBag', '3': 'BopBag', length: 4 });
   });
@@ -147,11 +147,35 @@ describe('List Module', () => {
     list.push('Baz');
     list.push('Bop');
 
-    let newArray = list.map((val) => val + 'Bag');
+    list.map(val => val + 'Bag');
 
     expect(list).toEqual({ '0': 'Foo', '1': 'Bar', '2': 'Baz', '3': 'Bop', length: 4 });
   });
 
-  
+  //test for filter
+  it('filter(), when run, should return new list with items that statisfied the callback', () => {
+    let list = new List();
+    list.push('FooBag');
+    list.push('Bar');
+    list.push('BazBag');
+    list.push('Bop');
+
+    let newList = list.filter((val, i) => val.length === 6);
+
+    expect(newList).toEqual({ '0': 'FooBag', '1': 'BazBag', length: 2 });
+  });
+
+  it('filter(), when run, should leave original list unmodified', () => {
+    let list = new List();
+    list.push('FooBag');
+    list.push('Bar');
+    list.push('BazBag');
+    list.push('Bop');
+
+    list.filter((val, i) => val.length === 6);
+
+    expect(list).toEqual({ '0': 'FooBag', '1': 'Bar', '2': 'BazBag', '3': 'Bop', length: 4 });
+  });
+
   
 });
