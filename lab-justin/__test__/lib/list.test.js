@@ -177,5 +177,43 @@ describe('List Module', () => {
     expect(list).toEqual({ '0': 'FooBag', '1': 'Bar', '2': 'BazBag', '3': 'Bop', length: 4 });
   });
 
+  // tests for slice
+  it('slice(), when run, if there is one positive parameter, will return array from parameter to end', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+
+    let sliceArray = list.slice(1);
+
+    expect(sliceArray).toEqual({ '0': 'Bar', '1': 'Baz', '2': 'Bop', length: 3 });
+  });
+
+  it('slice(), when run, if one parameter that references a value the doesn\'t exist, then return empty array', () => {
+
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+
+    let sliceArray = list.slice(100);
+
+    expect(sliceArray).toEqual([]);
+  });
+
+  it('slice(), when run, should leave original list unmodified', () => {
+    let list = new List();
+    list.push('Foo');
+    list.push('Bar');
+    list.push('Baz');
+    list.push('Bop');
+    
+    list.slice(1, 3);
+
+    expect(list).toEqual({ '0': 'Foo', '1': 'Bar', '2': 'Baz', '3': 'Bop', length: 4 });
+  });
+
   
 });
